@@ -1,0 +1,25 @@
+﻿<Window x:Class="Opc_Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Opc_Client"
+        xmlns:v="clr-namespace:Opc_Client.Views"
+        xmlns:vm="clr-namespace:Opc_Client.ViewModel"
+        DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBlock Text="Main"/>
+            <TextBlock Text="{Binding SelectedNode.NodeId, StringFormat='Node: {0}'}"/>
+            <v:MainOpcDiscoveryBrowser/>
+            <v:MainOpcBrowser/>
+        </StackPanel>
+        <v:TagView Grid.Column="1"/>
+    </Grid>
+</Window>
